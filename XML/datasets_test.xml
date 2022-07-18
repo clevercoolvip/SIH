@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<erddapDatasets>
+<!-- GENERAL INFORMATION
+The information in this file specifies which datasets your ERDDAP will serve.
+The initial version of this file has a few examples which should work for you.
+But after your initial experiments with ERDDAP, 
+you should replace them with information for your datasets.
+You can change this document (e.g., add datasets, change metadata) while ERDDAP is running. 
+The changes will be detected the next time this document is read
+(as often as setup.xml loadDatasetsMinMinutes).
+Each dataset has a reloadEveryNMinutes value (default = 10080 (one week)).
+When this document is reread, datasets that haven't been been reloaded in 
+their reloadEveryNMinutes will be reloaded.
+You only need to specify a reloadEveryNMinutes value if you anticipate that
+the dataset will change periodically.
+If this document has an xml error, processing will stop and an email
+will be sent to emailEverythingTo as specified in setup.xml.
+If you want to remove a dataset while ERDDAP is running, add 
+    active="false"
+to the dataset tag.  For example,
+    <dataset type="EDDGridFromDap" datasetID="erdMHchla8day" active="false">
+For more information, see 
+http://coastwatch.pfel.noaa.gov/erddap/download/setupDatasetsXml.html
+-->
+
+<!-- If you want to refuse requests from certain clients
+  (e.g., to fend off a Denial of Service attack or an overly zealous web robot), 
+  add their numeric IP address (e.g., 123.45.67.89) to this comma-separated list. 
+  You can also replace the last number in an IP address with * to block 0-255 (e.g., 123.45.67.*).
+  See your ERDDAP daily report for a list/tally of the most active requesters. -->
+<requestBlacklist></requestBlacklist>
+
+<!-- If you want to prevent specific people from using the email/URL subscription
+     system, uncomment the following tag and add their email addresses to the comma-separated list. 
+<subscriptionEmailBlacklist>some.name@company.com, another.name@company.com</subscriptionEmailBlacklist>
+-->
+
+<!-- These convert the local sourceUrl (used in dataset tags) 
+into the public sourceUrl (which appears in a dataset's globalAttributes).
+This is only needed if some datasets use non-public sourceUrl's
+(usually because their computer is in your DMZ or a local LAN). 
+'from' and 'to' are the start of the URLs and are case sensitive.
+'from' must be '[something]//[something]/' . 
+For example,
+<convertToPublicSourceUrl from="http://192.168.31.18/" to="http://oceanwatch.pfeg.noaa.gov/" />
+will cause a matching local sourceUrl (such as http://192.168.31.18/thredds/dodsC/satellite/BA/ssta/5day)
+into a public sourceUrl (http://oceanwatch.pfeg.noaa.gov/thredds/dodsC/satellite/BA/ssta/5day). 
+-->
+<!--
+<convertToPublicSourceUrl from="http://192.168.31.18/" to="http://oceanwatch.pfeg.noaa.gov/" />
+<convertToPublicSourceUrl from="http://192.168.31.27/" to="http://thredds1.pfeg.noaa.gov/"   />
+-->
+
+
+<!--
+ DISCLAIMER:
+   The chunk of datasets.xml made by GenerageDatasetsXml isn't perfect.
+   YOU MUST READ AND EDIT THE XML BEFORE USING IT IN A PUBLIC ERDDAP.
+   GenerateDatasetsXml relies on a lot of rules-of-thumb which aren't always
+   correct.  *YOU* ARE RESPONSIBLE FOR ENSURING THE CORRECTNESS OF THE XML
+   THAT YOU ADD TO ERDDAP'S datasets.xml FILE.
+
+ DIRECTIONS:
+ * Read about this type of dataset in
+   http://coastwatch.pfeg.noaa.gov/erddap/download/setupDatasetsXml.html .
+ * Read http://coastwatch.pfeg.noaa.gov/erddap/download/setupDatasetsXml.html#addAttributes
+   so that you understand about sourceAttributes and addAttributes.
+ * Note: Global sourceAttributes and variable sourceAttributes are listed
+   below as comments, for informational purposes only.
+   ERDDAP combines sourceAttributes and addAttributes (which have
+   precedence) to make the combinedAttributes that are shown to the user.
+   (And other attributes are automatically added to longitude, latitude,
+   altitude, depth, and time variables).
+ * If you don't like a sourceAttribute, override it by adding an
+   addAttribute with the same name but a different value
+   (or no value, if you want to remove it).
+ * All of the addAttributes are computer-generated suggestions. Edit them!
+   If you don't like an addAttribute, change it.
+ * If you want to add other addAttributes, add them.
+ * If you want to change a destinationName, change it.
+   But don't change sourceNames.
+ * You can change the order of the dataVariables or remove any of them.
+-->
+
+<!--
+ DISCLAIMER:
+   The chunk of datasets.xml made by GenerageDatasetsXml isn't perfect.
+   YOU MUST READ AND EDIT THE XML BEFORE USING IT IN A PUBLIC ERDDAP.
+   GenerateDatasetsXml relies on a lot of rules-of-thumb which aren't always
+   correct.  *YOU* ARE RESPONSIBLE FOR ENSURING THE CORRECTNESS OF THE XML
+   THAT YOU ADD TO ERDDAP'S datasets.xml FILE.
+
+ DIRECTIONS:
+ * Read about this type of dataset in
+   http://coastwatch.pfeg.noaa.gov/erddap/download/setupDatasetsXml.html .
+ * Read http://coastwatch.pfeg.noaa.gov/erddap/download/setupDatasetsXml.html#addAttributes
+   so that you understand about sourceAttributes and addAttributes.
+ * Note: Global sourceAttributes and variable sourceAttributes are listed
+   below as comments, for informational purposes only.
+   ERDDAP combines sourceAttributes and addAttributes (which have
+   precedence) to make the combinedAttributes that are shown to the user.
+   (And other attributes are automatically added to longitude, latitude,
+   altitude, depth, and time variables).
+ * If you don't like a sourceAttribute, override it by adding an
+   addAttribute with the same name but a different value
+   (or no value, if you want to remove it).
+ * All of the addAttributes are computer-generated suggestions. Edit them!
+   If you don't like an addAttribute, change it.
+ * If you want to add other addAttributes, add them.
+ * If you want to change a destinationName, change it.
+   But don't change sourceNames.
+ * You can change the order of the dataVariables or remove any of them.
+-->
+
+<dataset type="EDDTableFromNcFiles" datasetID="test_2788_304d_47c8" active="true">
+    <reloadEveryNMinutes>5</reloadEveryNMinutes>
+    <fileDir>/Users/lcampbell/data/ooi/test/</fileDir>
+    <recursive>true</recursive>
+    <fileNameRegex>.*\.nc</fileNameRegex>
+    <metadataFrom>last</metadataFrom>
+    <preExtractRegex></preExtractRegex>
+    <postExtractRegex></postExtractRegex>
+    <extractRegex></extractRegex>
+    <columnNameForExtract></columnNameForExtract>
+    <sortedColumnSourceName>sci_m_present_time</sortedColumnSourceName>
+    <sortFilesBySourceNames>sci_m_present_time</sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory>
+    <!-- sourceAttributes>
+        <att name="cdm_data_type">timeSeries</att>
+        <att name="collection_method">recovered_host</att>
+        <att name="Conventions">CF-1.6</att>
+        <att name="creator_name">Ocean Observatories Initiative</att>
+        <att name="creator_url">http://oceanobservatories.org/</att>
+        <att name="date_created">2015-11-30T03:37:14.080479</att>
+        <att name="date_modified">2015-11-30T03:37:14.080485</att>
+        <att name="deployment" type="long">1</att>
+        <att name="feature_Type">point</att>
+        <att name="featureType">point</att>
+        <att name="geospatial_lat_max" type="double">50.0339387678795</att>
+        <att name="geospatial_lat_min" type="double">49.9791924414469</att>
+        <att name="geospatial_lat_resolution" type="double">0.1</att>
+        <att name="geospatial_lat_units">degrees_north</att>
+        <att name="geospatial_lon_max" type="double">-144.211682268459</att>
+        <att name="geospatial_lon_min" type="double">-144.272057482691</att>
+        <att name="geospatial_lon_resolution" type="double">0.1</att>
+        <att name="geospatial_lon_units">degrees_east</att>
+        <att name="geospatial_vertical_positive">down</att>
+        <att name="geospatial_vertical_resolution" type="double">0.1</att>
+        <att name="geospatial_vertical_units">m</att>
+        <att name="history">2015-11-30T03:37:14.080380 generated from Stream Engine</att>
+        <att name="id">GP05MOAS-GL363-04-CTDGVM000-recovered_host-ctdgv_m_glider_instrument_recovered</att>
+        <att name="infoUrl">http://oceanobservatories.org/</att>
+        <att name="institution">Ocean Observatories Initiative</att>
+        <att name="location_name">None</att>
+        <att name="Metadata_Conventions">Unidata Dataset Discovery v1.0</att>
+        <att name="naming_authority">org.oceanobservatories</att>
+        <att name="nodc_template_version">NODC_NetCDF_TimeSeries_Orthogonal_Template_v1.1</att>
+        <att name="node">GL363</att>
+        <att name="processing_level">L2</att>
+        <att name="project">Ocean Observatories Initiative</att>
+        <att name="publisher_name">Ocean Observatories Initiative</att>
+        <att name="publisher_url">http://oceanobservatories.org/</att>
+        <att name="references">More information can be found at http://oceanobservatories.org/</att>
+        <att name="requestUUID">2073ac2b-f3b8-4e2f-a158-72da2f4a06f0</att>
+        <att name="sensor">04-CTDGVM000</att>
+        <att name="source">GP05MOAS-GL363-04-CTDGVM000-recovered_host-ctdgv_m_glider_instrument_recovered</att>
+        <att name="sourceUrl">http://oceanobservatories.org/</att>
+        <att name="standard_name_vocabulary">NetCDF Climate and Forecast (CF) Metadata Convention Standard Name Table 29</att>
+        <att name="stream">ctdgv_m_glider_instrument_recovered</att>
+        <att name="subsite">GP05MOAS</att>
+        <att name="summary">Dataset Generated by Stream Engine from Ocean Observatories Initiative</att>
+        <att name="time_coverage_end">2014-03-07T12:01:48.120570</att>
+        <att name="time_coverage_resolution">P6.51S</att>
+        <att name="time_coverage_start">2014-03-07T00:00:00.778170</att>
+        <att name="title">Data produced by Stream Engine version 0.8.4 for GP05MOAS-GL363-04-CTDGVM000-recovered_host-ctdgv_m_glider_instrument_recovered</att>
+        <att name="uuid">2073ac2b-f3b8-4e2f-a158-72da2f4a06f0</att>
+    </sourceAttributes -->
+    <!-- Please specify the actual cdm_data_type (TimeSeries?) and related info below, for example...
+        <att name="cdm_timeseries_variables">station, longitude, latitude</att>
+        <att name="subsetVariables">station, longitude, latitude</att>
+    -->
+    <addAttributes>
+        <att name="Conventions">CF-1.6, COARDS, Unidata Dataset Discovery v1.0</att>
+        <att name="institution">OOI</att>
+        <att name="keywords">bars, based, conductivity, ctd41cp, ctdgv, ctdgvm000, cycle, data, dataset, degrees, density, deployment, depth, derived, driver, elapsed, electrical, engine, gl363, glider, gp05moas, gp05moas-gl363-04-ctdgvm000-recovered, host, host-ctdgv, ingestion, instrument, internal, m-3, mission, observations, ocean, oceans,
+Oceans &gt; Ocean Temperature &gt; Water Temperature,
+Oceans &gt; Salinity/Density &gt; Conductivity,
+Oceans &gt; Salinity/Density &gt; Density,
+ooi, port, practical, preferred, pressure, produced, provenance, pss, pss-78, recovered, s/m, salinity, sample, science, sea, sea_water_density, sea_water_electrical_conductivity, sea_water_practical_salinity, sea_water_temperature, seawater, secs, start, stream, temperature, time, timestamp, unitless, version, water</att>
+        <att name="keywords_vocabulary">GCMD Science Keywords</att>
+        <att name="license">[standard]</att>
+        <att name="Metadata_Conventions">CF-1.6, COARDS, Unidata Dataset Discovery v1.0</att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="summary">OOI dataset</att>
+        <att name="title">Data produced by Stream Engine version 0.8.4 for GP05MOAS-GL363-04-CTDGVM000-recovered_host-ctdgv_m_glider_instrument_recovered (Sample OOI Dataset)</att>
+        <att name="cdm_timeseries_variables">deployment, lon, lat</att>
+    </addAttributes>
+    <dataVariable>
+        <sourceName>obs</sourceName>
+        <destinationName>obs</destinationName>
+        <dataType>long</dataType>
+        <!-- sourceAttributes>
+            <att name="cf_role">timeseries_id</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Obs</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sci_water_cond</sourceName>
+        <destinationName>sci_water_cond</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="comment">Conductivity, S/m</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="data_product_identifier">CONDWAT_L1</att>
+            <att name="long_name">Conductivity, S/m</att>
+            <att name="units">S m-1</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">40.0</att>
+            <att name="colorBarMinimum" type="double">30.0</att>
+            <att name="coordinates">null</att>
+            <att name="standard_name">sea_water_electrical_conductivity</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sci_m_present_time</sourceName>
+        <destinationName>sci_m_present_time</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="calendar">gregorian</att>
+            <att name="comment">Written by science on every cycle their notion of time, secs since 1970</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="long_name">Science derived time at the start of the cycle, UTC</att>
+            <att name="units">seconds since 1970-01-01</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+            <att name="standard_name">time</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sci_water_pracsal</sourceName>
+        <destinationName>sci_water_pracsal</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="comment">The OOI Level 2 Salinity core data product is computed using the TEOS-10 equations for practical salinity with data from the conductivity, temperature, and depth (CTD) family of instruments.</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="data_product_identifier">PRACSAL_L2</att>
+            <att name="long_name">Practical Salinity (seawater salinity, PSS-78) [unitless]</att>
+            <att name="standard_name">sea_water_practical_salinity</att>
+            <att name="units">1</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">1.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="coordinates">null</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>driver_timestamp</sourceName>
+        <destinationName>driver_timestamp</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="calendar">gregorian</att>
+            <att name="comment">Driver timestamp, UTC</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="long_name">Driver Timestamp, UTC</att>
+            <att name="units">seconds since 1900-01-01</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+            <att name="standard_name">time</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>id</sourceName>
+        <destinationName>id</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="long_name">id</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>provenance</sourceName>
+        <destinationName>provenance</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="long_name">provenance</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>lon</sourceName>
+        <destinationName>lon</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="axis">X</att>
+            <att name="long_name">lon</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="standard_name">longitude</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>internal_timestamp</sourceName>
+        <destinationName>internal_timestamp</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="calendar">gregorian</att>
+            <att name="comment">Internal timestamp, UTC</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="long_name">Internal Timestamp, UTC</att>
+            <att name="units">seconds since 1900-01-01</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+            <att name="standard_name">time</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>m_present_secs_into_mission</sourceName>
+        <destinationName>m_present_secs_into_mission</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="comment">Secs since mission started</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="long_name">Elapsed mission time, Secs</att>
+            <att name="units">s</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>m_present_time</sourceName>
+        <destinationName>m_present_time</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="calendar">gregorian</att>
+            <att name="comment">Secs since 1970 @ start of cycle</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="long_name">Time at the start of the cycle, UTC</att>
+            <att name="units">seconds since 1970-01-01</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+            <att name="standard_name">time</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>ingestion_timestamp</sourceName>
+        <destinationName>ingestion_timestamp</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="calendar">gregorian</att>
+            <att name="comment">The NTP Timestamp for when the granule was ingested</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="long_name">Ingestion Timestamp, UTC</att>
+            <att name="units">seconds since 1900-01-01</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+            <att name="standard_name">time</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>port_timestamp</sourceName>
+        <destinationName>port_timestamp</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="calendar">gregorian</att>
+            <att name="comment">Port timestamp, UTC</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="long_name">Port Timestamp, UTC</att>
+            <att name="units">seconds since 1900-01-01</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+            <att name="standard_name">time</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sci_water_pressure</sourceName>
+        <destinationName>sci_water_pressure</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="comment">Pressure, bar</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="data_product_identifier">PRESWAT_L1</att>
+            <att name="long_name">Pressure, bars</att>
+            <att name="units">bar</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sci_seawater_density</sourceName>
+        <destinationName>sci_seawater_density</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="comment">The density of seawater in kg m-3 computed using the TEOS-10 equations with data from the conductivity, temperature and depth (CTD) family of instruments.</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="data_product_identifier">DENSITY_L2</att>
+            <att name="long_name">Sea Water Density, kg m-3</att>
+            <att name="standard_name">sea_water_density</att>
+            <att name="units">kg m-3</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">28.0</att>
+            <att name="colorBarMinimum" type="double">20.0</att>
+            <att name="coordinates">null</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>deployment</sourceName>
+        <destinationName>deployment</destinationName>
+        <dataType>long</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="long">-2</att>
+            <att name="_Unsigned">true</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="long_name">deployment</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>lat</sourceName>
+        <destinationName>lat</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="axis">Y</att>
+            <att name="long_name">lat</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="standard_name">latitude</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sci_ctd41cp_timestamp</sourceName>
+        <destinationName>sci_ctd41cp_timestamp</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="calendar">gregorian</att>
+            <att name="comment">CTD41CP Timestamp in seconds since January 01, 1970. UTC</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="long_name">Ctd41cp Timestamp, UTC</att>
+            <att name="units">seconds since 1970-01-01</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+            <att name="standard_name">time</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>preferred_timestamp</sourceName>
+        <destinationName>preferred_timestamp</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+            <att name="comment">Timestamp preferred as official record.</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="long_name">Preferred Timestamp</att>
+            <att name="units">1</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">1.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="coordinates">null</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sci_m_present_secs_into_mission</sourceName>
+        <destinationName>sci_m_present_secs_into_mission</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="comment">Secs since mission started. Based on Science derived start time.</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="long_name">Elapsed mission time based on science derived start time, Secs</att>
+            <att name="units">s</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sci_water_temp</sourceName>
+        <destinationName>sci_water_temp</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="comment">Temperature, Degrees C</att>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="data_product_identifier">TEMPWAT_L1</att>
+            <att name="long_name">Temperature, degrees C</att>
+            <att name="units">deg_C</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">32.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="coordinates">null</att>
+            <att name="standard_name">sea_water_temperature</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>time</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="axis">T</att>
+            <att name="calendar">gregorian</att>
+            <att name="long_name">time</att>
+            <att name="standard_name">time</att>
+            <att name="units">seconds since 1900-01-01 0:0:0</att>
+        </sourceAttributes -->
+        <addAttributes>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>l0_provenance_information</sourceName>
+        <destinationName>l0_provenance_information</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+            <att name="coordinates">lat depth lon time</att>
+            <att name="description">file name, parser name, and parser version</att>
+            <att name="long_name">l0_provenance_data</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+            <att name="long_name">L0 Provenance Data</att>
+        </addAttributes>
+    </dataVariable>
+</dataset>
+
+
+</erddapDatasets>

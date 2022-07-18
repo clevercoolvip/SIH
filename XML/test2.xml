@@ -1,0 +1,71 @@
+<Restaurant xmlns="http://mehrbod.net/RR.xsd" id="41955207">
+<Name xmlns="">Staghorn Steakhouse</Name>
+<ZipCode xmlns="">10018</ZipCode>
+<Cuisines xmlns="">Seafood, Steakhouse</Cuisines>
+<PriceLevel xmlns=""> </PriceLevel>
+<Hours xmlns=""> </Hours>
+<Payment xmlns=""> </Payment>
+<DressCode xmlns=""> </DressCode>
+<SpecialFeatures xmlns="">
+<SpecialFeature>Notable Wine List</SpecialFeature>
+<SpecialFeature>Business Dining</SpecialFeature>
+<SpecialFeature>Romantic Dining</SpecialFeature>
+<SpecialFeature>Group Dining</SpecialFeature>
+<SpecialFeature>Fine Dining</SpecialFeature>
+</SpecialFeatures>
+<PromptSeating xmlns="">yes</PromptSeating>
+<MakeReservation xmlns="">yes</MakeReservation>
+<Romantic xmlns="">yes</Romantic>
+<GoodForKids xmlns="">no</GoodForKids>
+<GoodForGroups xmlns="">yes</GoodForGroups>
+<Reviews xmlns="">
+<Review id="1741211">
+<UserType>Customer</UserType>
+<Title>like eating in a funeral parlor!</Title>
+<Username>pauli68</Username>
+<Date>07/28/2006</Date>
+<TotalRatedHelpful> </TotalRatedHelpful>
+<TotalRated> </TotalRated>
+<Body>awful start to finish. went on a nice thursday night and we were 1 of only 2 tables in the whole place. zero atmosphere, overpriced menu, average food. we ordered the bacon appetizer thinking it would be similar to Lugers or any other reputable steakhouse - WRONG. They brought out tiny pieces of Oscar Meyer breakfast bacon. Eastern European waitstaff doesn't get the customer service thing either. save your money, boycott these average spots and lets keep NY restaurants on top.</Body>
+<Rating>2</Rating>
+<Pros>easy to get a table because its awful</Pros>
+<Cons>read the review</Cons>
+</Review>
+<Review id="1741279">
+<UserType>Customer</UserType>
+<Title>Hurry up and get to this place!</Title>
+<Username>chainsaw06</Username>
+<Date>07/28/2006</Date>
+<TotalRatedHelpful> </TotalRatedHelpful>
+<TotalRated> </TotalRated>
+<Body>Get there quick because by next week they will be selling all the fancy furniture and kitchen equipment on EBay! Where do I begin. They pour a fantastic glass of ice water and that's it! The bread on the table was harder than titanium. Maybe it wasn't supposed to be eaten just for decoration. The bacon appetizer doesn't even compare to Army MREs. I would say maybe on par with hospital food. The shrimp cocktail was just average until my waiter put his dirty sleeve in my plate...Thank you now its really tasty. I think the waitstaff was hired away from the KFC down the block. This place is history!!</Body>
+<Rating>1</Rating>
+<Pros>Brand new clean bathrooms</Pros>
+<Cons>Expensive</Cons>
+</Review>
+<Review id="1732945">
+<UserType>Customer</UserType>
+<Title>Great Steaks / Great Service</Title>
+<Username>larrybird33</Username>
+<Date>07/19/2006</Date>
+<TotalRatedHelpful> </TotalRatedHelpful>
+<TotalRated> </TotalRated>
+<Body>Got caught at the last minute looking for a restaurant on the West Side to take important clients, and held my breath coming here for the first time. But what a great place! Understated but sleek decor, prompt/attentive/not overbearing service, stiff drinks from the bar, and awesome steaks. Will definitely return.</Body>
+<Rating>5</Rating>
+<Pros>Steaks, drinks and service</Pros>
+<Cons>Somewhat pricey</Cons>
+</Review>
+<Review id="1720570">
+<UserType>Customer</UserType>
+<Title>Great atmosphere and food to match!!!</Title>
+<Username>lax111</Username>
+<Date>07/11/2006</Date>
+<TotalRatedHelpful> </TotalRatedHelpful>
+<TotalRated> </TotalRated>
+<Body>I was at an event at the Garden and found Staghorn right near there so went with some friends for dinner. What a nice restaurant. The steak of course was great and the drinks were made nice and strong. Service was just as good. I would definitely suggest have dinner one night if you are in the area!!!</Body>
+<Rating>5</Rating>
+<Pros> </Pros>
+<Cons> </Cons>
+</Review>
+</Reviews>
+</Restaurant>
